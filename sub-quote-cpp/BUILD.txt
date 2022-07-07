@@ -1,0 +1,15 @@
+## Linux 下编译方法
+在 ubuntu 18.04 验证通过
+
+* 编译
+```
+sudo apt-get install libmosquitto-dev zlib1g-dev
+```
+
+* 运行
+```
+./tstClient
+```
+
+* 注意
+默认体验密码和服务器地址都已经在程序中固定，有需求可以联系我们获取独立的用户名密码
