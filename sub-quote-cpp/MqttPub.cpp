@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 
-#define ENABLE_ZLIB
+// #define ENABLE_ZLIB
 
 #ifdef ENABLE_ZLIB
 #include <zlib.h>

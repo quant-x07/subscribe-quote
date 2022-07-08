@@ -8,4 +8,5 @@ link_directories(/home/netsec/root/usr/local/lib)
 
 add_executable(tstClient main.cpp MqttPub.cpp TraceCompress.cpp)
 
-target_link_libraries(tstClient mosquitto pthread z)
+target_link_libraries(tstClient mosquitto pthread)
+# z
