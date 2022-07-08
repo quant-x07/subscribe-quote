@@ -12,15 +12,15 @@ class Trace(object):
         # float
         self.open = 0.0          # 今日开盘
         #float
-        high = 0.0               # 今日最高
+        self.high = 0.0               # 今日最高
         #float
-        low = 0.0                # 今日最低
+        self.low = 0.0                # 今日最低
         #float
-        close = 0.0              # 最新价格
+        self.close = 0.0              # 最新价格
         #float
-        volume = 0.0             # 总成交量
+        self.volume = 0.0             # 总成交量
         #float
-        amount = 0.0             # 总成交金额
+        self.amount = 0.0             # 总成交金额
 
         #float
         self.bp1 = 0.0           # 买入价一
@@ -80,3 +80,22 @@ class Trace(object):
         self.avPrice = 0.0       # 期货的结算价（平均价）
         #float
         self.temp2 = 0.0
+
+    # String
+    def getMarket(self):
+        return stkLabel[0:2]
+
+    # String
+    def getStockId(self):
+        return stkLabel[2:]
+
+    def dump(self, simple):
+        if simple:
+            print("%d %s %f" % (self.time, self.stkLabel, self.lastClose))
+        else:
+            print("%d %s %f" % (self.time, self.stkLabel, self.lastClose))
+            print("o:%f h:%f l:%f c:%f v:%f a:%f" % (self.open, self.high, self.low, self.close, self.volume, self.amount))
+            print("bp1:%f bp2:%f bp3:%f bp4:%f bp5:%f" % (self.bp1, self.bp2, self.bp3, self.bp4, self.bp5))
+            print("bv1:%f bv2:%f bv3:%f bv4:%f bv5:%f" % (self.bv1, self.bv2, self.bv3, self.bv4, self.bv5))
+            print("cnt:%d neipan:%f limitUp:%f limitDown:%f position: %f avPrice:%f temp2: %f" %
+                    (self.traceCount, self.neipan, self.limitUp, self.limitDown, self.position, self.avPrice, self.temp2))

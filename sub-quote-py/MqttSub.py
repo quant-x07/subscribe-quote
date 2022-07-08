@@ -1,4 +1,6 @@
+#import zlib
 from paho.mqtt import client as mqtt_client
+from TraceCompress import TraceCompress
 
 class MqttSub(object):
     def __init__(self):
@@ -15,7 +17,15 @@ class MqttSub(object):
                 print("Failed to connect, return code %d\n", rc)
 
         def on_message(client, userdata, msg):
-            print("Received %s from %s topic" % (len(msg.payload), msg.topic))
+            #data = zlib.decompress(msg.payload)
+            data = msg.payload
+            print("Received %s -> %s from %s topic" % (len(msg.payload), len(data), msg.topic))
+            compress = TraceCompress()
+            trace = compress.initBuf(data)
+            while not compress.isAtEnd():
+                k = compress.decompress()
+                print("trace解压后: %s" % k.stkLabel)
+                k.dump(False)
 
         def on_subscribe(mosq, obj, mid, granted_qos):
             print("Subscribed: " + str(mid) + " " + str(granted_qos))

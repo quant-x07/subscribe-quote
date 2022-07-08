@@ -1,4 +1,3 @@
-
 from MqttSub import MqttSub
 
 if __name__ == '__main__':
