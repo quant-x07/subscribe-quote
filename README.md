@@ -40,8 +40,15 @@ cnt:0 neipan:0.000000 limitUp:0.000000 limitDown:0.000000 position: 0.000000 avP
 在 ubuntu 18.04 验证通过
 
 * 编译
+安装依赖包
 ```
 sudo apt-get install libmosquitto-dev zlib1g-dev
+```
+编译
+```
+cd sub-quote-cpp
+cmake .
+make
 ```
 
 * 运行
