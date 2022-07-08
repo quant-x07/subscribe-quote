@@ -8,12 +8,12 @@ precision = 100
 precision_vol = 1
 
 # int
-def p2i(self, price):
+def p2i(price):
     ret = math.floor(price * precision + 0.5)
     return int(ret)
 
 # int
-def v2i(self, price):
+def v2i(price):
     ret = math.floor(price * precision_vol + 0.5)
     return int(ret)
 

@@ -1,3 +1,5 @@
+import struct
+
 class DataFlags(object):
     f_lastClose = 0  # b-> 0
     f_open = 2  # b-> lastClose
@@ -40,7 +42,7 @@ class DataFlags(object):
     f_temp2 = 6  # b-> close
 
     def __init__(self, b):
-        u0, u1, u2, u3, u4, u5, u6, u7 = struct.unpack('<BBBBBBBB')
+        u0, u1, u2, u3, u4, u5, u6, u7 = struct.unpack('<BBBBBBBB', b)
 
         self.lastClose = (u0 >> self.f_lastClose) & 0b11 # b-> 0
         self.open = (u0 >> self.f_open) & 0b11  # b-> lastClose
