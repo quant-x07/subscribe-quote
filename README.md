@@ -96,7 +96,7 @@ pip3 install -r requirements.txt
 * 运行程序
 
 ```
-python3 main.py 
+python3 main.py SH000001
 Connected to MQTT Broker!
 Received 144 -> 144 from quote/SH000001 topic
 trace解压后: SH000001
